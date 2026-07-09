@@ -1,0 +1,78 @@
+/* 1. Reset Global & Background Foto */
+* { box-sizing: border-box; }
+
+html {
+  height: auto; 
+  min-height: 100%;
+  background-color: #444;
+}
+
+body { 
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  
+  background-image: url('/bg-foto.jpeg'); 
+  background-size: cover; 
+  background-position: center; 
+  background-attachment: scroll; 
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+  background-color: #444; 
+  
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 40px; 
+  padding-bottom: 40px; 
+  font-family: 'Georgia', serif;
+  color: #5a544e;
+}
+
+/* 2. Container Utama */
+.container { 
+  width: 90%; 
+  max-width: 700px; 
+  background: rgba(255, 255, 255, 0.95); 
+  padding: 40px; 
+  border-radius: 20px; 
+  box-shadow: 0 15px 50px rgba(0,0,0,0.5); 
+  text-align: center; 
+  margin-bottom: 40px;
+}
+
+/* 3. Styling Konten */
+.logo { width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 15px auto; display: block; object-fit: cover; border: 3px solid #f8f6f4; }
+h1 { color: #5a544e; margin: 5px 0 25px 0; font-size: 28px; }
+input, textarea { width: 100%; padding: 15px; border-radius: 12px; border: 1px solid #dcd6d0; font-family: 'Georgia', serif; box-sizing: border-box; margin-bottom: 15px; }
+button { padding: 12px; border: none; border-radius: 12px; cursor: pointer; font-weight: bold; color: white; width: 100%; margin-bottom: 12px; }
+.btn-save { background-color: #7a8a7e; }
+.btn-delete { background-color: #8c7f7f; }
+
+.koleksi-grid { display: flex; flex-direction: column; gap: 30px; margin-top: 30px; }
+.memori-card { background: #fcfcfc; padding: 20px; border-radius: 15px; text-align: left; }
+
+/* Swiper di dalam kartu (Foto & Video) */
+.swiper { width: 100%; height: 350px; border-radius: 15px; margin: 15px 0; background: #eee; }
+.swiper-slide img, .swiper-slide video { 
+  width: 100%; height: 100%; object-fit: cover; 
+}
+
+/* 4. Modal Fullscreen (Transparan & Blur) */
+.fullscreen-modal { 
+  position: fixed; top: 0; left: 0; 
+  width: 100vw; height: 100vh; 
+  background: rgba(0, 0, 0, 0.6); 
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 999999 !important; 
+  display: flex; justify-content: center; align-items: center; 
+}
+.close-btn { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; z-index: 1000000; }
+
+.swiper-full { width: 100vw !important; height: 100vh !important; }
+.slide-full { display: flex; justify-content: center; align-items: center; width: 100vw; height: 100vh; }
+.slide-full img, .slide-full video { 
+  max-width: 90vw; max-height: 90vh; object-fit: contain; 
+}

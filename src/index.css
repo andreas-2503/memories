@@ -1,0 +1,12 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Memastikan kotak di tengah layar */
+  background: linear-gradient(135deg, #f6f2ec 0%, #dcd6d0 100%);
+  background-attachment: fixed;
+  font-family: 'Georgia', serif;
+  color: #5c5854;
+}
