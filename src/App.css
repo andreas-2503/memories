@@ -2,8 +2,7 @@
 * { box-sizing: border-box; }
 
 html {
-  height: auto; 
-  min-height: 100%;
+  height: 100%; 
   background-color: #444;
 }
 
@@ -16,16 +15,15 @@ body {
   background-image: url('/bg-foto.jpeg'); 
   background-size: cover; 
   background-position: center; 
-  background-attachment: scroll; 
+  background-attachment: fixed; /* Background diam saat discroll */
   background-repeat: no-repeat;
   background-blend-mode: multiply;
   background-color: #444; 
   
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding-top: 40px; 
-  padding-bottom: 40px; 
+  align-items: center; /* KUNCI: Membuat konten tepat di tengah vertikal */
+  
   font-family: 'Georgia', serif;
   color: #5a544e;
 }
@@ -38,8 +36,8 @@ body {
   padding: 40px; 
   border-radius: 20px; 
   box-shadow: 0 15px 50px rgba(0,0,0,0.5); 
-  text-align: center; 
-  margin-bottom: 40px;
+  text-align: center;
+  /* Margin bawah dihapus agar tidak mengganggu posisi center */
 }
 
 /* 3. Styling Konten */
