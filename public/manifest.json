@@ -1,6 +1,10 @@
 {
-  "short_name": "Memories",
   "name": "Memories App",
+  "short_name": "Memories",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#444444",
   "icons": [
     {
       "src": "/logo.png",
@@ -12,9 +16,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#444444",
-  "background_color": "#ffffff"
+  ]
 }
