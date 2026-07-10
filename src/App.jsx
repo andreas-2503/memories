@@ -25,7 +25,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
 
-  // Fungsi Download yang diperbarui
   const handleDownload = async (url, filename) => {
     try {
       const response = await fetch(url);
@@ -167,4 +166,30 @@ function App() {
                           </button>
                         </SwiperSlide>
                       ))}
-                    </Swiper
+                    </Swiper>
+                  </div>
+                )}
+                <button className="btn-delete" onClick={() => deleteDoc(doc(db, "memori", m.id))}>Hapus</button>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+
+      {fullScreenImages && (
+        <div className="fullscreen-modal">
+          <span className="close-btn" onClick={() => setFullScreenImages(null)}>&times;</span>
+          <Swiper navigation={true} pagination={{ clickable: true }} keyboard={true} modules={[Navigation, Pagination, Keyboard]} className="swiper-full">
+            {fullScreenImages.map((media, i) => (
+              <SwiperSlide key={i} className="slide-full">
+                {media.type === 'video' ? <video src={media.url} controls /> : <img src={media.url} alt="full" />}
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default App;
