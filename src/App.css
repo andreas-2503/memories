@@ -26,17 +26,48 @@ html, body {
   border-radius: 20px; 
   box-shadow: 0 15px 50px rgba(0,0,0,0.5); 
   text-align: center;
-  /* Margin auto membuat container selalu di tengah kiri-kanan */
   margin: 40px auto; 
 }
 
 /* 3. Styling Konten */
 .logo { width: 80px; height: 80px; border-radius: 50%; margin: 0 auto 15px auto; display: block; object-fit: cover; border: 3px solid #f8f6f4; }
 h1 { color: #5a544e; margin: 5px 0 25px 0; font-size: 28px; }
-input, textarea { width: 100%; padding: 15px; border-radius: 12px; border: 1px solid #dcd6d0; font-family: 'Georgia', serif; box-sizing: border-box; margin-bottom: 15px; }
+
+/* Styling Input & Textarea */
+input, textarea, input[type="password"] { 
+  width: 100%; 
+  padding: 15px; 
+  border-radius: 12px; 
+  border: 1px solid #dcd6d0; 
+  font-family: 'Georgia', serif; 
+  box-sizing: border-box; 
+  margin-bottom: 15px; 
+}
+
+/* Khusus input PIN */
+input[type="password"] {
+  text-align: center;
+  font-size: 1.5rem;
+  letter-spacing: 10px;
+}
+
 button { padding: 12px; border: none; border-radius: 12px; cursor: pointer; font-weight: bold; color: white; width: 100%; margin-bottom: 12px; }
 .btn-save { background-color: #7a8a7e; }
 .btn-delete { background-color: #8c7f7f; }
+
+/* Tambahan: Tombol Download */
+.btn-download { 
+  background-color: #28a745; 
+  color: white; 
+  border: none; 
+  padding: 10px; 
+  margin-top: 10px; 
+  cursor: pointer; 
+  border-radius: 8px; 
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+.btn-download:hover { background-color: #218838; }
 
 .koleksi-grid { display: flex; flex-direction: column; gap: 30px; margin-top: 30px; }
 .memori-card { background: #fcfcfc; padding: 20px; border-radius: 15px; text-align: left; }
@@ -47,7 +78,7 @@ button { padding: 12px; border: none; border-radius: 12px; cursor: pointer; font
   width: 100%; height: 100%; object-fit: cover; 
 }
 
-/* 4. Modal Fullscreen (Transparan & Blur) */
+/* 4. Modal Fullscreen */
 .fullscreen-modal { 
   position: fixed; top: 0; left: 0; 
   width: 100vw; height: 100vh; 
