@@ -15,7 +15,6 @@ function App() {
   const [inputPin, setInputPin] = useState('');
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [isPinSet, setIsPinSet] = useState(!!localStorage.getItem('userPin'));
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [memori, setMemori] = useState('');
@@ -71,13 +70,11 @@ function App() {
     if (!memori && files.length === 0) return;
     setIsLoading(true);
     setUploadProgress(0);
-
     const uploadPromises = files.map((file) => {
       return new Promise((resolve, reject) => {
         const formData = new FormData();
         formData.append("file", file);
         formData.append("upload_preset", "memori_preset");
-
         const xhr = new XMLHttpRequest();
         xhr.open("POST", "https://api.cloudinary.com/v1_1/px0xpddz/auto/upload");
         xhr.upload.onprogress = (event) => {
@@ -91,14 +88,11 @@ function App() {
         xhr.send(formData);
       });
     });
-
     const results = await Promise.all(uploadPromises);
     const uploadedData = results.map(res => ({ url: res.secure_url, type: res.resource_type }));
-
     await addDoc(collection(db, "memori"), { teks: memori, mediaList: uploadedData, email: user.email, tanggal: new Date() });
-    
-    setIsLoading(false); 
-    setMemori(''); 
+    setIsLoading(false);
+    setMemori('');
     setFiles([]);
     setUploadProgress(0);
   };
@@ -127,7 +121,6 @@ function App() {
     <div className="container">
       <img src="/logo.png" alt="Logo" className="logo" />
       <h1>Memories</h1>
-
       {!user ? (
         <div className="input-section">
           <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
@@ -150,7 +143,6 @@ function App() {
             </button>
             <button className="btn-delete" onClick={() => { signOut(auth); setIsUnlocked(false); }}>Keluar</button>
           </div>
-
           <div className="koleksi-grid">
             {daftarMemori.map((m) => (
               <div key={m.id} className="memori-card">
@@ -161,7 +153,7 @@ function App() {
                       {m.mediaList.map((media, i) => (
                         <SwiperSlide key={i}>
                           {media.type === 'video' ? <video src={media.url} /> : <img src={media.url} alt="momen" />}
-                          <button className="btn-download" onClick={() => handleDownload(media.url, `memori-${m.id}-${i}.jpg`)}>
+                          <button className="btn-download-new" onClick={() => handleDownload(media.url, `memori-${m.id}-${i}.jpg`)}>
                             Download
                           </button>
                         </SwiperSlide>
@@ -175,7 +167,6 @@ function App() {
           </div>
         </>
       )}
-
       {fullScreenImages && (
         <div className="fullscreen-modal">
           <span className="close-btn" onClick={() => setFullScreenImages(null)}>&times;</span>
@@ -191,5 +182,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
