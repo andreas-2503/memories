@@ -6,6 +6,7 @@ html, body {
   padding: 0;
   width: 100%;
   min-height: 100vh;
+  /* Pengaturan Background */
   background-image: url('/bg-foto.jpeg'); 
   background-size: cover; 
   background-position: center; 
@@ -15,6 +16,10 @@ html, body {
   background-color: #444; 
   font-family: 'Georgia', serif;
   color: #5a544e;
+  /* Penambahan agar konten selalu di tengah */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 /* 2. Container Utama */
@@ -26,7 +31,7 @@ html, body {
   border-radius: 20px; 
   box-shadow: 0 15px 50px rgba(0,0,0,0.5); 
   text-align: center;
-  margin: 40px auto; 
+  margin: 40px 0; /* Menggunakan margin vertikal agar tidak beradu dengan flex */
 }
 
 /* 3. Styling Konten */
